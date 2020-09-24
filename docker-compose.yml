@@ -1,0 +1,33 @@
+version: "3.7"
+
+services:
+  core:
+    stdin_open: true
+    tty: true
+    container_name: core_container
+    build: .
+    command: bash -c "python manage.py migrate --noinput && python manage.py runserver"
+    volumes:
+      - ./:/src
+    expose:
+      - 8000
+    links:
+      - postgres_db
+    depends_on:
+      - postgres_db
+
+  postgres_db:
+    image: postgres:9.6.16
+    container_name: postgres_db
+    volumes:
+      - database:/var/lib/postgresql/data/
+    expose:
+      - 5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRESPASSWORD=testing123
+      - POSTGRES_DB=ApacheLogDB
+
+volumes:
+  database:
+

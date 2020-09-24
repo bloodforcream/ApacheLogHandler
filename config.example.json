@@ -1,0 +1,11 @@
+{
+  "db_credentials": {
+    "name": "ApacheLogDB",
+    "user": "postgres",
+    "password": "testing123",
+    "host": "postgres_db",
+    "port": "5432"
+  },
+  "secret_key": "ssv@_5ektxbcs92xa3=#650+g#-m%l-ad%#(xw$nl_p9)(03qm",
+  "debug": true
+}
